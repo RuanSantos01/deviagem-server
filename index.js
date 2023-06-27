@@ -99,6 +99,10 @@ const storagePackages = multer.diskStorage({
 
 const uploadPackages = multer({ storage: storagePackages, limits: { fileSize: 10 * 1024 * 1024 } });
 
+app.use('/', (req, res) => {
+    res.json("Bem vindo ao DeViagem")
+})
+
 // ROUTES WITH FILES
 // app.post("/auth", upload.array, component)  <- EXEMPLO
 app.post("/accommodations/register", upload.array('image', 10), upload.single('imageQuarto'), registerAccommodation)
